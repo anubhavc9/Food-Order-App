@@ -9,6 +9,7 @@ const Cart = (props) => {
   const [isCheckout, setIsCheckout] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [didSubmit, setDidSubmit] = useState(false);
+  const [httpError, setHttpError] = useState(null);
 
   const cartCtx = useContext(CartContext);
 
@@ -29,16 +30,26 @@ const Cart = (props) => {
 
   const submitOrderHandler = async (userData) => {
     setIsSubmitting(true);
-    const response = await fetch(
-      'https://react-http-ebcff-default-rtdb.firebaseio.com/orders.json',
-      {
-        method: 'POST',
-        body: JSON.stringify({
-          user: userData,
-          orderedItems: cartCtx.items,
-        }),
+    try {
+      const response = await fetch(
+        'https://react-http-ebcff-default-rtdb.firebaseio.com/orders.json',
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            user: userData,
+            orderedItems: cartCtx.items,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(
+          `Something went wrong! Status code: ${response.status}`
+        );
       }
-    );
+    } catch (error) {
+      setHttpError(error.message);
+    }
     setIsSubmitting(false);
     setDidSubmit(true);
     cartCtx.clearCart();
@@ -103,7 +114,8 @@ const Cart = (props) => {
     <Modal onClose={props.onClose}>
       {!isSubmitting && !didSubmit && cartModalContent}
       {isSubmitting && isSubmittingModalContent}
-      {!isSubmitting && didSubmit && didSubmitModalContent}
+      {!isSubmitting && didSubmit && !httpError && didSubmitModalContent}
+      {!isSubmitting && httpError && <p>{httpError}</p>}
     </Modal>
   );
 };
