@@ -11,7 +11,8 @@ const AvailableMeals = () => {
   useEffect(() => {
     const fetchMeals = async () => {
       const response = await fetch(
-        'https://react-http-ebcff-default-rtdb.firebaseio.com/meals.json'
+        // 'https://react-http-ebcff-default-rtdb.firebaseio.com/meals.json'
+        'http://localhost:9000/meals'
       );
 
       if (!response.ok) {
@@ -21,12 +22,12 @@ const AvailableMeals = () => {
       const data = await response.json();
 
       const loadedMeals = [];
-      for (const key in data) {
+      for (const meal of data) {
         loadedMeals.push({
-          id: key,
-          name: data[key].name,
-          description: data[key].description,
-          price: data[key].price,
+          id: meal._id,
+          name: meal.name,
+          description: meal.description,
+          price: meal.price,
         });
       }
 

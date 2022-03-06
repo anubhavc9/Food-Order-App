@@ -32,13 +32,17 @@ const Cart = (props) => {
     setIsSubmitting(true);
     try {
       const response = await fetch(
-        'https://react-http-ebcff-default-rtdb.firebaseio.com/orders.json',
+        // 'https://react-http-ebcff-default-rtdb.firebaseio.com/orders.json',
+        'http://localhost:9000/orders',
         {
           method: 'POST',
           body: JSON.stringify({
             user: userData,
             orderedItems: cartCtx.items,
           }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
         }
       );
 
