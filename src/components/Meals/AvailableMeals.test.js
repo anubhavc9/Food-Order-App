@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import AvailableMeals from '../AvailableMeals';
+import AvailableMeals from './AvailableMeals';
 
 describe('AvailableMeals component', () => {
   test('should render the list of meals if request succeeds', async () => {
