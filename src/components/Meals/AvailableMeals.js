@@ -3,6 +3,11 @@ import Card from '../UI/Card';
 import './AvailableMeals.css';
 import MealItem from './MealItem/MealItem';
 
+// For Local (Dev) environment
+const localBaseUrl = 'http://localhost:9000';
+// For Prod environment
+const prodBaseUrl = 'https://react-food-order-backend.herokuapp.com';
+
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -10,10 +15,7 @@ const AvailableMeals = () => {
 
   useEffect(() => {
     const fetchMeals = async () => {
-      const response = await fetch(
-        // 'https://react-http-ebcff-default-rtdb.firebaseio.com/meals.json'
-        'http://localhost:9000/meals'
-      );
+      const response = await fetch(prodBaseUrl + '/meals');
 
       if (!response.ok) {
         throw new Error(`Something went wrong! Status Code ${response.status}`);

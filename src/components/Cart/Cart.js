@@ -5,6 +5,11 @@ import './Cart.css';
 import CartItem from './CartItem';
 import Checkout from './Checkout';
 
+// For Local (Dev) environment
+const localBaseUrl = 'http://localhost:9000';
+// For Prod environment
+const prodBaseUrl = 'https://react-food-order-backend.herokuapp.com';
+
 const Cart = (props) => {
   const [isCheckout, setIsCheckout] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -31,20 +36,16 @@ const Cart = (props) => {
   const submitOrderHandler = async (userData) => {
     setIsSubmitting(true);
     try {
-      const response = await fetch(
-        // 'https://react-http-ebcff-default-rtdb.firebaseio.com/orders.json',
-        'http://localhost:9000/orders',
-        {
-          method: 'POST',
-          body: JSON.stringify({
-            user: userData,
-            orderedItems: cartCtx.items,
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+      const response = await fetch(prodBaseUrl + '/orders', {
+        method: 'POST',
+        body: JSON.stringify({
+          user: userData,
+          orderedItems: cartCtx.items,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
       if (!response.ok) {
         throw new Error(
