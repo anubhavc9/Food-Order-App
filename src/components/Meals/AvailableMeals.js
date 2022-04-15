@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Card from '../UI/Card';
-import './AvailableMeals.css';
+import classes from './AvailableMeals.module.css';
 import MealItem from './MealItem/MealItem';
 
 // For Local (Dev) environment
@@ -45,7 +45,7 @@ const AvailableMeals = () => {
 
   if (isLoading) {
     return (
-      <section className='mealsLoading'>
+      <section className={classes.mealsLoading}>
         <p>Loading...</p>
       </section>
     );
@@ -53,7 +53,7 @@ const AvailableMeals = () => {
 
   if (httpError) {
     return (
-      <section className='mealsError'>
+      <section className={classes.mealsError}>
         <p>{httpError}</p>
       </section>
     );
@@ -70,7 +70,7 @@ const AvailableMeals = () => {
   ));
 
   return (
-    <section className='meals'>
+    <section className={classes.meals}>
       <Card>
         <ul>{mealsList}</ul>
       </Card>
