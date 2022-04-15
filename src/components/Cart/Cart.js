@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import CartContext from '../../store/cart-context';
 import Modal from '../UI/Modal';
-import './Cart.css';
+import classes from './Cart.module.css';
 import CartItem from './CartItem';
 import Checkout from './Checkout';
 
@@ -61,7 +61,7 @@ const Cart = (props) => {
   };
 
   const cartItems = (
-    <ul className='cart-items'>
+    <ul className={classes['cart-items']}>
       {cartCtx.items.map((item) => (
         <CartItem
           key={item.id}
@@ -76,12 +76,12 @@ const Cart = (props) => {
   );
 
   const modalActions = (
-    <div className='actions'>
-      <button className='button--alt' onClick={props.onClose}>
+    <div className={classes.actions}>
+      <button className={classes['button--alt']} onClick={props.onClose}>
         Close
       </button>
       {hasItems && (
-        <button className='button' onClick={orderHandler}>
+        <button className={classes.button} onClick={orderHandler}>
           Order
         </button>
       )}
@@ -91,7 +91,7 @@ const Cart = (props) => {
   const cartModalContent = (
     <React.Fragment>
       {cartItems}
-      <div className='total'>
+      <div className={classes.total}>
         <span>Total Amount</span>
         <span>{totalAmount}</span>
       </div>
@@ -107,8 +107,8 @@ const Cart = (props) => {
   const didSubmitModalContent = (
     <React.Fragment>
       <p>Successfully sent the order!</p>
-      <div className='actions'>
-        <button className='button' onClick={props.onClose}>
+      <div className={classes.actions}>
+        <button className={classes.button} onClick={props.onClose}>
           Close
         </button>
       </div>
