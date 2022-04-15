@@ -6,7 +6,7 @@ import CartItem from './CartItem';
 import Checkout from './Checkout';
 
 // For Local (Dev) environment
-const localBaseUrl = 'http://localhost:9000';
+// const localBaseUrl = 'http://localhost:9000';
 // For Prod environment
 const prodBaseUrl = 'https://react-food-order-backend.herokuapp.com';
 

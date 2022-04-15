@@ -6,17 +6,18 @@
     margin: auto;
     margin-top: -10rem;
     position: relative;
-    background-color: #383838;
-    color: white;
+    background-color: white;
+    color: #383838;
     border-radius: 14px;
     padding: 1rem;
     box-shadow: 0 1px 18px 10px rgba(0, 0, 0, 0.25);
+    font-size: 1.2rem;
 }
 
 .summary h2 {
     font-family: 'Ms Madi', cursive;
     /* font-family: 'Square Peg', cursive; */
     /* font-family: 'Whisper', cursive; */
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-top: 0;
 }

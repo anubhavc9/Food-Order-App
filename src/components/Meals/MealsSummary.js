@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import classes from './MealsSummary.module.css';
 
-const mainHeadings = ['Unexpected guests?', 'Cooking gone wrong?', 'Game night?', 'Movie marathon?', 'Late night at office?', 'Hungry?'];
+const mainHeadings = ['Unexpected guests?', 'Cooking gone wrong?', 'Game night?', 'Movie marathon?', 'Late night at office?', 'Midnight craving?', 'Hungry?'];
 var i = 0; // counter to loop thorugh the mainHeadings
 
 const MealsSummary = () => {
@@ -10,13 +10,13 @@ const MealsSummary = () => {
   const nextHeading = useCallback(() => {
     setMainHeading(mainHeadings[i % mainHeadings.length]);
     i++;
-    if(i == mainHeadings.length) {
+    if(i === mainHeadings.length) {
       i = 0;
     }
   },[]);
 
   useEffect(() => {
-    const intervalID = setInterval(nextHeading, 5000);
+    const intervalID = setInterval(nextHeading, 4000);
     return () => clearInterval(intervalID);
   }, [nextHeading]);
 
