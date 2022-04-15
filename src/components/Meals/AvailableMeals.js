@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import DescriptionAlert from '../UI/DescriptionAlert';
 import Card from '../UI/Card';
 import classes from './AvailableMeals.module.css';
 import MealItem from './MealItem/MealItem';
@@ -54,7 +55,7 @@ const AvailableMeals = () => {
   if (httpError) {
     return (
       <section className={classes.mealsError}>
-        <p>{httpError}</p>
+        <DescriptionAlert alertType="error" alertMessage={httpError}/>
       </section>
     );
   }
