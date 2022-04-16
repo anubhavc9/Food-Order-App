@@ -16,9 +16,9 @@ const CarouselImages = (props) => {
             <Carousel
                 index={index}
                 onChange={handleChange}
-                interval={3000}
+                interval={4000}
                 animation="slide"
-                indicators={false}
+                indicators={true}
                 stopAutoPlayOnHover
                 swipe
                 className={classes['my-carousel']}
