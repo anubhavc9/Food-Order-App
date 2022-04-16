@@ -3,6 +3,7 @@ import DescriptionAlert from '../UI/DescriptionAlert';
 import Card from '../UI/Card';
 import classes from './AvailableMeals.module.css';
 import MealItem from './MealItem/MealItem';
+import Spinner from '../UI/Spinner';
 
 // For Local (Dev) environment
 // const localBaseUrl = 'http://localhost:9000';
@@ -47,7 +48,7 @@ const AvailableMeals = () => {
   if (isLoading) {
     return (
       <section className={classes.mealsLoading}>
-        <p>Loading...</p>
+        <Spinner />
       </section>
     );
   }
