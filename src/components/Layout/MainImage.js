@@ -1,10 +1,10 @@
 import classes from './MainImage.module.css';
-import mealsImage from '../../assets/meals.jpg';
+import italian from '../../assets/italian.jpeg'
 
 const MainImage = () => {
     return (
     <div className={classes['main-image']}>
-        <img src={mealsImage} alt='A table full of delicious food!' />
+        <img src={italian} alt='Italian cuisine' />
     </div>
     );
 };
