@@ -10,10 +10,6 @@ import japanese from '../../assets/japanese.jpeg';
 
 var mainImages = [
     {
-        name: "Japanese cuisine",
-        image: japanese
-    },
-    {
         name: "Italian cuisine",
         image: italian
     },
@@ -32,6 +28,10 @@ var mainImages = [
     {
         name: "French cuisine",
         image: french
+    },
+    {
+        name: "Japanese cuisine",
+        image: japanese
     },
 ];
 
