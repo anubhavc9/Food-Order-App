@@ -25,7 +25,7 @@ const CarouselImages = (props) => {
             >
 
                 {items.map((item, i) => (
-                    <img src={item.image} alt={item.name}/>
+                    <img key={i} src={item.image} alt={item.name}/>
                 ))}
 
             </Carousel>
