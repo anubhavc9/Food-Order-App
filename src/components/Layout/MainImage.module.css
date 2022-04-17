@@ -3,4 +3,5 @@
     height: 25rem;
     z-index: 0; /* must have a lower z-index than MealsSummary so MealsSummary card is in front*/
     overflow: hidden;
+    background: whitesmoke;
 }
