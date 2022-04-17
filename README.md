@@ -5,3 +5,8 @@
 - Works with RESTful APIs to interact with Express/MongoDB backend
 - Manages state through Context API
 - Has some basic unit tests written with Jest & React Testing Library
+
+### To run the project locally:
+1. Clone the repo
+2. `npm install`
+3. `npm start`
